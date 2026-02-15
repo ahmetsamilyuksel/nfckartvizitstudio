@@ -1,49 +1,36 @@
-# NFC Kartvizit Stüdyosu
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Next.js App Router + TypeScript + Tailwind + Prisma (SQLite) ile geliştirilmiş ticari NFC kartvizit sipariş sistemi.
+## Getting Started
 
-## Kurulum
+First, run the development server:
 
 ```bash
-npm install
-cp .env.example .env
-npx prisma migrate dev --name init
-npm run prisma:seed
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## ENV
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```env
-DATABASE_URL="file:./prisma/dev.db"
-DEFAULT_LOCALE="ru"
-ADMIN_EMAIL="admin@example.com"
-ADMIN_PASSWORD="admin12345"
-# ADMIN_PASSWORD_HASH="bcrypt-hash"
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Kullanım
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Kullanıcı akışı:
-  - `/ru` landing
-  - `/ru/create` kart tasarım + bilgiler + canlı önizleme
-  - `/ru/checkout` müşteri/teslimat + ödeme yöntemi + mock ödeme
-  - `/ru/order/success?orderId=...`
-- Dijital kart görünümü: `/ru/a/[cardId]`
+## Learn More
 
-## Admin
+To learn more about Next.js, take a look at the following resources:
 
-- Login: `/admin/login`
-- Panel: `/admin`
-- Siparişler: `/admin/orders`
-- Ayarlar (fiyat + ödeme yöntemleri): `/admin/settings`
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Varsayılan ödeme yöntemleri seed ile yüklenir:
-1. Оплата переводом
-2. Наличные
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Notlar
+## Deploy on Vercel
 
-- Veritabanı Prisma ile tasarlanmıştır, ileride `datasource` değiştirilerek Postgres'e taşınabilir.
-- Ödeme için `src/lib/payment/adapter.ts` içinde provider entegrasyon noktası ayrılmıştır.
-- Fotoğraf client-side resize edilir, maksimum ~300KB hedeflenir.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
