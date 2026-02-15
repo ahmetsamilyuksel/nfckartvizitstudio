@@ -1,0 +1,8 @@
+{
+  "common": {"currency":"₽","continue":"Devam Et","save":"Kaydet"},
+  "landing": {"title":"NFC Kartvizit Stüdyosu","cta":"Kartını Tasarla","subtitle":"Premium dijital networking"},
+  "create": {"title":"Kart Tasarla","design":"Tasarım","info":"Bilgiler","preview":"Önizleme","payment":"Ödeme","toCheckout":"Ödemeye Geç"},
+  "checkout": {"title":"Sipariş ve Ödeme","complete":"Ödemeyi Tamamla","customer":"Müşteri Bilgileri","address":"Teslimat"},
+  "success": {"title":"Ödeme Tamamlandı","desc":"Kart linkiniz hazır olduğunda SMS/WhatsApp ile bilgilendireceğiz."},
+  "admin": {"login":"Admin Girişi","dashboard":"Panel","orders":"Siparişler","settings":"Ayarlar"}
+}

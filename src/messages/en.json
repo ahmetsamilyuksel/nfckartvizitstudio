@@ -1,0 +1,8 @@
+{
+  "common": {"currency":"₽","continue":"Continue","save":"Save"},
+  "landing": {"title":"NFC Business Card Studio","cta":"Design Your Card","subtitle":"Premium digital networking"},
+  "create": {"title":"Design Card","design":"Design","info":"Details","preview":"Preview","payment":"Payment","toCheckout":"Go to Checkout"},
+  "checkout": {"title":"Checkout","complete":"Complete Payment","customer":"Customer Information","address":"Shipping"},
+  "success": {"title":"Payment Completed","desc":"We will notify you via SMS/WhatsApp when your card link is ready."},
+  "admin": {"login":"Admin Login","dashboard":"Dashboard","orders":"Orders","settings":"Settings"}
+}
