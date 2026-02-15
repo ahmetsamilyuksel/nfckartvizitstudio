@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  NEW
+  PAID
+  IN_PRODUCTION
+  SHIPPED
+  COMPLETED
+  CANCELED
+}
+
+enum PaymentMethodType {
+  manual
+  bank
+  card
+  crypto
+  other
+}
+
+model AdminSetting {
+  id           Int    @id
+  currency     String @default("RUB")
+  basePriceRub Int    @default(1490)
+}
+
+model PaymentMethod {
+  id           Int               @id @default(autoincrement())
+  name         String
+  type         PaymentMethodType @default(manual)
+  active       Boolean           @default(true)
+  instructions String            @default("")
+  sortOrder    Int               @default(0)
+  createdAt    DateTime          @default(now())
+  orders       Order[]
+}
+
+model Card {
+  id           String   @id
+  fullName     String
+  company      String?
+  title        String?
+  phone        String?
+  email        String?
+  website      String?
+  whatsapp     String?
+  telegram     String?
+  model        String
+  color        String
+  photoDataUrl String?
+  createdAt    DateTime @default(now())
+  order        Order?
+}
+
+model Order {
+  id                 String      @id
+  createdAt          DateTime    @default(now())
+  status             OrderStatus @default(NEW)
+  totalAmountRub     Int
+  paymentMethodId    Int
+  customerFullName   String
+  customerPhone      String
+  shippingCountry    String
+  shippingCity       String
+  shippingAddress1   String
+  shippingAddress2   String?
+  shippingPostalCode String?
+  cardId             String      @unique
+  notes              String?
+
+  paymentMethod PaymentMethod @relation(fields: [paymentMethodId], references: [id])
+  card          Card          @relation(fields: [cardId], references: [id])
+}
+
+model AuditLog {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  action     String
+  entityType String
+  entityId   String
+  metaJson   String?
+}
